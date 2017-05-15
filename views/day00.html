@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vue Day00 Introduction</title>
+</head>
+<body>
+    <!-- demo 0 -->
+    <div id="demo-0">{{ message }}</div>
+
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1">
+        <span v-bind:title="message">please hover your mouse pointer to see the result.</span>
+    </div>
+
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2">
+        <span v-if="seen">Now, you saw me!</span>
+    </div>
+
+    <!-- demo 3 -->
+    <hr>
+    <div id="demo-3">
+        <ol>
+            <li v-for="i in list">{{ i.text }}</li>
+        </ol>
+    </div>
+
+    <!-- demo 4-->
+    <hr>
+    <div id="demo-4">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMsg">Reverse Message</button>
+    </div>
+
+    <!-- demo 5 -->
+    <hr>
+    <div id="demo-5">
+        <p>{{message}}</p>
+        <input v-model="message" style="width: 300px;">
+    </div>
+
+    <!-- demo 6 -->
+    <hr>
+    <div id="demo-6">
+        <ol>
+            <item v-for="i in itemList" v-bind:foo="i"></item>
+        </ol>
+    </div>
+
+    <hr>
+    <div id="demo-7">
+        <p>{{ 'WYSIWYG'.split('').reverse().join('') }}</p>
+    </div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day00.js"></script>
+</body>
+</html>

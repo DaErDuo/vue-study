@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>Vue Day02</title>
+    <title>Vue Day02 class-and-style</title>
 </head>
 <body>
+    <!-- demo 0 -->
+    <div id="demo-0" class="static"
+         v-bind:class="{ active: isActive, 'text-danger': hasError }">demo 0</div>
 
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1" class="static"
+            v-bind:class="classObj">demo 1</div>
+
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2" class="static"
+         v-bind:class="classObj">demo 2</div>
+
+    <!-- demo 3 -->
+    <hr>
+    <div id="demo-3"
+         v-bind:class="[activeClass, errorClass]">demo 3</div>
+
+    <!-- demo 4 -->
+    <hr>
+    <div id="demo-4"
+         v-bind:class="[isActive ? activeClass : errorClass]">demo 4</div>
+
+    <!-- demo 5 -->
+    <hr>
+    <div id="demo-5"
+         v-bind:class="[{active: isActive}, errorClass]">demo 5</div>
+
+    <!-- demo 6 -->
+    <hr>
+    <div id="demo-6">
+        <my-component class="baz boo" v-bind:class="{active: isActive}"></my-component>
+    </div>
+
+    <!-- demo 7 -->
+    <hr>
+    <div id="demo-7"
+         v-bind:style="{ color: activeClr, fontSize: fontSize + 'px' }">demo 7</div>
+
+    <!-- demo 8 -->
+    <hr>
+    <div id="demo-8"
+         v-bind:style="styleObj">demo 8</div>
+
+    <!-- demo 9 -->
+    <hr>
+    <div id="demo-9"
+         v-bind:style="[baseStyle, overridingStyle]">demo 9</div>
+
+    <!-- demo 10 -->
+    <hr>
+    <div id="demo-10"
+         v-bind:style="styleObj">demo 10</div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day02.js"></script>
 </body>
 </html>

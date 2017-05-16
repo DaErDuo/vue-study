@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Vue Day03 conditional</title>
+</head>
+<body>
+    <!-- demo 0 -->
+    <div id="demo-0">
+        <!--<h1 v-if="isOk">demo 0</h1>-->
+        <!--<h1 v-else>Hello Vue</h1>-->
+        <template v-if="isOk">
+            <h1>demo 0</h1>
+            <p>abc</p>
+            <p>xyz</p>
+        </template>
+        <template v-else>
+            <h1>No</h1>
+        </template>
+    </div>
+
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1">
+        <div v-if="Math.random() > 0.5">please say sorry.</div>
+        <div v-else>i'm ok.</div>
+    </div>
+
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2">
+        <div v-if="type === 'A'">AAA</div>
+        <div v-else-if="type === 'B'">BBB</div>
+        <div v-else-if="type === 'C'">CCC</div>
+        <div v-else>Not AAA/BBB/CCC</div>
+    </div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day03.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Vue Day04 List</title>
+</head>
+<body>
+    <!-- demo 0 -->
+    <div id="demo-0">
+        <ul>
+            <li v-for="item in items">{{ item.message }}</li>
+        </ul>
+    </div>
+
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1">
+        <ul>
+            <li v-for="(item, index) in items">{{ parentMessage }} - {{ index }} - {{ item.message }}</li>
+        </ul>
+    </div>
+
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2">
+        <ul>
+            <li v-for="(item, index) of items">{{ parentMessage }} - {{ index }} - {{ item.message }}</li>
+        </ul>
+    </div>
+
+    <!-- demo 3 -->
+    <hr>
+    <div id="demo-3">
+        <template v-for="item in items">
+            <li>{{ item.msg }}</li>
+            <li class="divider">demo3</li>
+        </template>
+    </div>
+
+    <!-- demo 4 -->
+    <hr>
+    <div id="demo-4">
+        <ul>
+            <li v-for="(value, key, idx) in obj">{{ idx }}. {{ key }} : {{ value }}</li>
+        </ul>
+    </div>
+
+    <!-- demo 5 -->
+    <hr>
+    <div id="demo-5">
+        <span v-for="n in 10">{{ n }}</span>
+    </div>
+
+    <!-- demo 6 -->
+    <hr>
+    <div id="demo-6">
+        <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+        <ul>
+            <li is="todo-item" v-for="(todo, index) in todos" v-bind:title="todo" v-on:remove="todos.splice(index, 1)"></li>
+        </ul>
+    </div>
+
+    <!-- demo 7 -->
+    <hr>
+    <div id="demo-7">
+        <ul>
+            <li v-for="todo in todos" v-if="!todo.isComplete">{{ todo.msg }}</li>
+        </ul>
+    </div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day04.js"></script>
+</body>
+</html>

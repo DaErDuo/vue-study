@@ -19,3 +19,11 @@ var demo2 = new Vue({
     }
 });
 demo2.type = 'abc';
+
+var demo3 = new Vue({
+    el: '#demo-3',
+    data: {
+        isShow: false
+    }
+});
+demo3.isShow = true;

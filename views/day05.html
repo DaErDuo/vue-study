@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Vue Day05 Events</title>
+</head>
+<body>
+    <!-- demo 0 -->
+    <div id="demo-0">
+        <button v-on:click="count += 1">Click Me</button>
+        <p>This button was clicked {{ count }} times.</p>
+    </div>
+
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1">
+        <button v-on:click="greet">Greet</button>
+    </div>
+
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2">
+        <button @click="say('Hi~')">Say Hi</button>
+        <button @click="say('What\'s up man?')">Say What</button>
+    </div>
+
+    <!-- demo 3 -->
+    <hr>
+    <div id="demo-3">
+        <button @click="warn('Form cannot be submitted yet.', $event)">submit</button>
+    </div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day05.js"></script>
+</body>
+</html>

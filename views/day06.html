@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Vue Day06 Forms</title>
+</head>
+<body>
+    <!-- demo 0 -->
+    <div id="demo-0">
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+    </div>
+
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1">
+        <span>MultiLine message is:</span>
+        <p style="white-space: pre;">{{ message }}</p>
+        <textarea v-model="message" placeholder="add multiple lines" style="width: 100%;"></textarea>
+    </div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day06.js"></script>
+</body>
+</html>

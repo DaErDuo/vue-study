@@ -97,6 +97,46 @@ var demo7 = new Vue({
     }
 });
 
+var demo8 = new Vue({
+    el: '#demo-8',
+    data: {
+        items: [
+            {id: 0, msg: 'Boo'},
+            {id: 1, msg: 'Foo'},
+            {id: 2, msg: 'Too'}
+        ]
+    }
+});
+Vue.set(demo8.items, 3, {id: 3, msg: 'Xoo'});
+demo8.items.splice(0, 1, {id: 4, msg: 'Koo'});
+
+var demo9 = new Vue({
+    el: '#demo-9',
+    data: {
+        numArr: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    computed: {
+        evenNumbers: function() {
+            return this.numArr.filter(function (n) {
+                return n % 2 === 0;
+            });
+        }
+    }
+});
+
+var demo10 = new Vue({
+    el: '#demo-10',
+    data: {
+        numArr: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    },
+    methods: {
+        even: function(numbers) {
+            return numbers.filter(function (n) {
+                return n % 3 === 0;
+            });
+        }
+    }
+});
 
 
 

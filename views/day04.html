@@ -70,6 +70,26 @@
         </ul>
     </div>
 
+    <!-- demo 8 -->
+    <hr>
+    <div id="demo-8">
+        <ul>
+            <li v-for="item in items" :key="item.id">{{ item.msg }}</li>
+        </ul>
+    </div>
+
+    <!-- demo 9 -->
+    <hr>
+    <div id="demo-9">
+        <span v-for="n in evenNumbers">{{ n }}</span>
+    </div>
+
+    <!-- demo 10 -->
+    <hr>
+    <div id="demo-10">
+        <span v-for="n in even(numArr)">{{ n }}</span>
+    </div>
+
     <script src="../lib/vue/vue.js"></script>
     <script src="../assets/js/day04.js"></script>
 </body>

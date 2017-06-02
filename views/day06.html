@@ -21,6 +21,102 @@
         <textarea v-model="message" placeholder="add multiple lines" style="width: 100%;"></textarea>
     </div>
 
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <!-- demo 3 -->
+    <hr>
+    <div id="demo-3">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <p>Checked Names: {{ checkedNames }}</p>
+    </div>
+
+    <!-- demo 4 -->
+    <hr>
+    <div id="demo-4">
+        <input type="radio" id="foo" value="Foo" v-model="picked">
+        <label for="foo">Foo</label><br>
+        <input type="radio" id="boo" value="Boo" v-model="picked">
+        <label for="boo">Boo</label><br>
+        <input type="radio" id="koo" value="Koo" v-model="picked">
+        <label for="koo">Koo</label>
+        <p>Picked: {{ picked }}</p>
+    </div>
+
+    <!-- demo 5 -->
+    <hr>
+    <div id="demo-5">
+        <select v-model="selected" style="width: 50%; border: 1px solid #ccc;">
+            <option value="" selected>Please Select</option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+            <option value="4">D</option>
+        </select>
+        <p>Selected: {{ selected }}</p>
+    </div>
+
+    <!-- demo 6 -->
+    <hr>
+    <div id="demo-6">
+        <select v-model="selected" multiple style="width: 50%; border: 1px solid #ccc;">
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+            <option value="4">D</option>
+        </select>
+        <p>Selected: {{ selected }}</p>
+    </div>
+
+    <!-- demo 7 -->
+    <hr>
+    <div id="demo-7">
+        <select v-model="selected" style="width: 50%; border: 1px solid #ccc;">
+            <option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option>
+        </select>
+        <p>Selected: {{ selected }}</p>
+    </div>
+
+    <!-- demo 8 -->
+    <hr>
+    <div id="demo-8">
+        <input type="radio" v-model="picked" value="foo">
+        <input type="checkbox" v-model="toggle">
+        <select v-model="selected" style="width: 50%; border: 1px solid #ccc;">
+            <option value="abc">ABC</option>
+        </select>
+    </div>
+
+    <!-- demo 9 -->
+    <hr>
+    <div id="demo-9">
+        <input type="checkbox" v-model="toggle" v-bind:true-vlue="a" v-bind:false-vlue="b">
+        <input type="radio" v-model="picked" v-bind:value="foo">
+        <select v-model="selected" style="width: 50%; border: 1px solid #ccc;">
+            <option v-bind:value="{ number: 123 }">ABC</option>
+        </select>
+    </div>
+
+    <!-- demo 10 -->
+    <hr>
+    <div id="demo-10">
+        <input type="text" v-model.lazy="msg" style="width: 100%; border: 1px solid #ccc;">
+        <p>{{ msg }}</p>
+        <input type="number" v-model.number="age" style="width: 100%; border: 1px solid #ccc;">
+        <p>{{ age }}</p>
+        <input type="text" v-model.trim="msg1" style="width: 100%; border: 1px solid #ccc;">
+        <p>{{ msg1 }}</p>
+    </div>
+
     <script src="../lib/vue/vue.js"></script>
     <script src="../assets/js/day06.js"></script>
 </body>

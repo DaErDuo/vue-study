@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vue Day07 Components</title>
+</head>
+<body>
+    <!-- demo 0 -->
+    <div id="demo-0">
+        <my-component></my-component>
+    </div>
+
+    <!-- demo 1 -->
+    <hr>
+    <div id="demo-1">
+        <my-component></my-component>
+    </div>
+
+    <!-- demo 2 -->
+    <hr>
+    <div id="demo-2">
+        <table>
+            <!--<my-row></my-row>-->
+            <tr is="my-row"></tr>
+        </table>
+    </div>
+
+    <!-- demo 3 -->
+    <hr>
+    <div id="demo-3">
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+    </div>
+
+    <!-- demo 4 -->
+    <hr>
+    <div id="demo-4">
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+    </div>
+
+    <!-- demo 5 -->
+    <hr>
+    <div id="demo-5">
+        <my-child message="Hello" message1="Vue"></my-child>
+    </div>
+
+    <!-- demo 6 -->
+    <hr>
+    <div id="demo-6">
+        <my-child my-message="Hello Vue Component"></my-child>
+    </div>
+
+    <!-- demo 7 -->
+    <hr>
+    <div id="demo-7">
+        <input v-model="parentMsg">
+        <br>
+        <my-child :child-message="parentMsg"></my-child>
+    </div>
+
+    <!-- demo 8 -->
+    <hr>
+    <div id="demo-8">
+        <label>msgA: <input v-model="msgA"></label><br>
+        <label>msgB: <input v-model="msgB"></label><br>
+        <label>msgC: <input v-model="msgC"></label><br>
+        <!--<label>msgD: <input v-model="msgD"></label><br>-->
+        <!--<label>msgE: <input v-model="msgE"></label><br>-->
+        <label>msgF: <input v-model="msgF"></label><br>
+        <my-component
+                :prop-a="msgA"
+                :prop-b="msgB"
+                :prop-c="msgC"
+                :prop-f="msgF"></my-component>
+    </div>
+
+    <script src="../lib/vue/vue.js"></script>
+    <script src="../assets/js/day07.js"></script>
+</body>
+</html>

@@ -115,7 +115,14 @@ Vue.component('my-component', {
             }
         }
     },
-    template: '<p>propA: {{ propA }}, propB: {{ propB }}, propC: {{ propC }}, propD: {{ propD }}, propE: {{ propE }}, propF: {{ propF }}</p>'
+    template: '<p>' +
+        'propA: {{ propA }}, ' +
+        'propB: {{ propB }}, ' +
+        'propC: {{ propC }}, ' +
+        'propD: {{ propD }}, ' +
+        'propE: {{ propE }}, ' +
+        'propF: {{ propF }}' +
+    '</p>'
 });
 var demo8 = new Vue({
     el: '#demo-8',
@@ -130,8 +137,133 @@ var demo8 = new Vue({
 });
 
 
+// custom events
+Vue.component("button-counter", {
+    template: '<button v-on:click="incrementCounter">{{ counter }}</button>',
+    data: function() {
+        return {
+            counter: 0
+        }
+    },
+    methods: {
+        incrementCounter: function() {
+            this.counter += 1;
+            this.$emit('increment'); // pass information to parent component
+        }
+    }
+});
+var demo9 = new Vue({
+    el: '#demo-9',
+    data: {
+        total: 0
+    },
+    methods: {
+        incrementTotal: function() {
+            this.total += 1;
+        }
+    }
+});
 
+// Form Input Components using Custom Events
+Vue.component('currency-input', {
+    template: '<span>' +
+        '$' +
+        '<input ref="input" ' +
+            'v-bind:value="value" ' +
+            'v-on:input="updateValue($event.target.value)">' +
+        '</span>',
+    props: ['value'],
+    methods: {
+        updateValue: function(value) {
+            var formattedValue = value.trim().slice(
+                0,
+                value.indexOf('.') === -1
+                    ? value.length
+                    : value.indexOf('.') + 3
+            );
 
+            if (formattedValue !== value) {
+                this.$refs.input.value = formattedValue;
+            }
+            this.$emit('input', Number(formattedValue));
+        }
+    }
+});
+var demo10 = new Vue({
+    el: '#demo-10',
+    data: {
+        price: ''
+    }
+});
+
+Vue.component('currency-input', {
+    template: '' +
+        '<div>' +
+            '<label v-if="label">{{ label }}</label>' +
+            ' $' +
+            '<input ' +
+                'ref="input" ' +
+                'v-bind:value="value" ' +
+                'v-on:input="updateValue($event.target.value)" ' +
+                'v-on:focus="selectAll" ' +
+                'v-on:blur="formatValue">' +
+        '</div>',
+
+    props: {
+        value: {
+            type: Number,
+            default: 0
+        },
+        label: {
+            type: String,
+            default: ''
+        }
+    },
+
+    mounted: function() {
+        this.formatValue()
+    },
+
+    methods: {
+        updateValue: function(value) {
+            var result = currencyValidator.parse(value, this.value);
+            if (result.warning) {
+                this.$refs.input.value = result.value;
+            }
+
+            this.$emit('input', result.value);
+        },
+
+        formatValue: function() {
+            this.$refs.input.value = currencyValidator.format(this.value)
+        },
+
+        selectAll: function(event) {
+            setTimeout(function() {
+                event.target.select();
+            }, 0);
+        }
+    }
+});
+var demo11 = new Vue({
+    el: '#demo-11',
+    data: {
+        price: 0,
+        shipping: 0,
+        handling: 0,
+        discount: 0
+    },
+    computed: {
+        total: function() {
+            return ((
+                this.price * 100 +
+                this.shipping * 100 +
+                this.handling * 100 +
+                this.discount * 100
+            ) / 100).toFixed(2)
+        }
+    }
+});
 
 
 

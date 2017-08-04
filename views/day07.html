@@ -71,14 +71,40 @@
         <!--<label>msgD: <input v-model="msgD"></label><br>-->
         <!--<label>msgE: <input v-model="msgE"></label><br>-->
         <label>msgF: <input v-model="msgF"></label><br>
-        <my-component
+            <my-component
                 :prop-a="msgA"
                 :prop-b="msgB"
                 :prop-c="msgC"
                 :prop-f="msgF"></my-component>
     </div>
 
+    <!-- demo 9 -->
+    <hr>
+    <div id="demo-9">
+        <p>{{ total }}</p>
+        <button-counter v-on:increment="incrementTotal"></button-counter>
+        <button-counter v-on:increment="incrementTotal"></button-counter>
+    </div>
+
+    <!-- demo 10 -->
+    <hr>
+    <div id="demo-10">
+        <currency-input v-model="price"></currency-input>
+    </div>
+
+    <!-- demo 11 -->
+    <hr>
+    <div id="demo-11">
+        <currency-input label="Price" v-model="price"></currency-input>
+        <currency-input label="Shipping" v-model="shipping"></currency-input>
+        <currency-input label="Handling" v-model="handling"></currency-input>
+        <currency-input label="Discount" v-model="discount"></currency-input>
+
+        <p>Total: ${{ total }}</p>
+    </div>
+
     <script src="../lib/vue/vue.js"></script>
+    <script src="../lib/currency-validator.js"></script>
     <script src="../assets/js/day07.js"></script>
 </body>
 </html>

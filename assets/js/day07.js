@@ -265,10 +265,47 @@ var demo11 = new Vue({
     }
 });
 
+// Single slot
+Vue.component('my-component', {
+    template: '' +
+        '<div>' +
+            '<h2>I\'m the child title</h2>' +
+            '<slot>This will only be displayed if there is no content to be distributed.</slot>' +
+        '</div>'
+});
+var demo12 = new Vue({
+    el: '#demo-12'
+});
 
+// Named slots
+Vue.component('app-layout', {
+    template: '' +
+        '<div>' +
+            '<header>' +
+                '<slot name="header"></slot>' +
+            '</header>' +
+            '<main>' +
+                '<slot></slot>' +
+            '</main>' +
+            '<footer>' +
+                '<slot name="footer"></slot>' +
+            '</footer>' +
+        '</div>'
+});
+var demo13 = new Vue({
+    el: '#demo-13'
+});
 
-
-
+// Scoped slots
+Vue.component('child', {
+    template: '' +
+        '<div class="child">' +
+            '<slot text="Hello from child"></slot>' +
+        '</div>'
+});
+var demo14 = new Vue({
+    el: '#demo-14'
+});
 
 
 

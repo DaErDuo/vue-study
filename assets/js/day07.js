@@ -299,7 +299,7 @@ var demo13 = new Vue({
 // Scoped slots
 Vue.component('child', {
     template: '' +
-        '<div class="child">' +
+        '<div>' +
             '<slot text="Hello from child"></slot>' +
         '</div>'
 });
